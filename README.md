@@ -1,113 +1,152 @@
 # 🎓 College Event Management System
 
-![Android](https://img.shields.io/badge/Platform-Android-green)
-![Java](https://img.shields.io/badge/Language-Java-orange)
-![Firebase](https://img.shields.io/badge/Backend-Firebase-yellow)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
-![SDK](https://img.shields.io/badge/Min%20SDK-24-blue)
+![Platform](https://img.shields.io/badge/Platform-Android-brightgreen)
+![Language](https://img.shields.io/badge/Language-Java-orange)
+![Backend](https://img.shields.io/badge/Backend-Firebase-yellow)
+![Status](https://img.shields.io/badge/Status-Completed-success)
+![Min SDK](https://img.shields.io/badge/Min%20SDK-API%2024-blue)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 > A fully functional Android application for managing college events 
-> and student registrations — built using Java, XML and Firebase.
+> and student registrations — built with Java, XML, Firebase Realtime 
+> Database, and Firebase Authentication.
 
 ---
 
-## 📱 Screenshots
+## 📱 App Overview
 
-> Login → Dashboard → Event Details → Registration → Confirmation → Admin Panel
+College Event Management System allows students to browse upcoming 
+college events, register with smart forms, receive QR code tickets, 
+and share confirmations on WhatsApp. Faculty admins can manage all 
+registrations in real time, search, filter, and export data. A built-in 
+calendar highlights event dates and a venue booking system prevents 
+double-booking conflicts.
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-### 👨‍🎓 Student Side
-- 🔐 Register and Login using Firebase Authentication
-- 📅 View 5 upcoming college events on Dashboard
-- 📋 View complete Event Details (name, date, venue, description)
-- 📝 Register for any event with smart form
+### 👨‍🎓 Student Features
+- 🔐 Secure login and registration via Firebase Authentication
+- 📅 Browse 5 upcoming college events on a clean dashboard
+- 🔍 Search events by name using live search bar
+- 👥 See registration count per event in real time
+- 📋 View full event details — name, date, venue, description
+- ⚠️ Venue conflict warning if hall is already booked
+- 📝 Smart registration form with:
   - Branch dropdown (IT, AI ML, CE, CS)
   - Year dropdown (1st to 4th Year)
-  - Phone number validation
-- ✅ Confirmation page with unique Registration ID (EVTxxxxx)
-- 🔄 Duplicate registration prevention
+  - 10-digit phone number validation
+  - Duplicate registration prevention
+- ✅ Confirmation page with unique Registration ID
+- 📲 QR Code ticket generated after registration
+- 💬 Share confirmation and QR ticket on WhatsApp
 
-### 👨‍💼 Admin Side
-- 🔐 Secure Admin Login (separate from student login)
+### 👨‍💼 Admin Features
+- 🔐 Separate admin login (secured credentials)
 - 📊 View all registrations in real time
-- 🔍 Search registrations by name, phone or branch
-- 🗂️ Filter registrations event-wise
-- 📤 Share complete registration list via any app
+- 🔍 Search by name, phone, or branch
+- 🗂️ Filter registrations by event type
+- 📤 Export and share data in Excel/text format
 - 🗑️ Delete individual registrations
-- 📈 Total registration count display
+- 📈 Total registration count across all events
+
+### 📅 Calendar Feature
+- Monthly calendar view with navigation
+- Red highlights on event dates
+- List of events for current month displayed below calendar
+- Today's date highlighted separately
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Usage |
-|------------|-------|
-| **Java** | Primary programming language |
-| **XML** | UI Layout design |
-| **Android Studio** | IDE |
-| **Firebase Authentication** | Student login & registration |
-| **Firebase Realtime Database** | Store & retrieve registrations |
-| **CardView** | Event cards on Dashboard |
-| **AlertDialog** | Branch & Year dropdowns |
-| **ListView** | Display registrations in Admin |
-| **Intent** | Navigation between screens |
+| Technology | Purpose |
+|------------|---------|
+| Java | Primary programming language |
+| XML | UI layout design |
+| Android Studio | IDE |
+| Firebase Authentication | Student login and registration |
+| Firebase Realtime Database | Store and fetch registrations |
+| ZXing Library | QR code generation |
+| CardView | Premium event card UI |
+| AlertDialog | Branch and year dropdowns |
+| ListView | Registration list in admin panel |
+| Intent | Navigation between all screens |
 
 ---
 
-## 📁 Project Structure
-app/
-├── java/com/example/myapplicationproject/
-│   ├── LoginActivity.java
-│   ├── RegisterActivity.java
-│   ├── DashboardActivity.java
-│   ├── EventDetailActivity.java
-│   ├── RegistrationFormActivity.java
-│   ├── ConfirmationActivity.java
-│   ├── AdminPanelActivity.java
-│   └── Event.java
-│
-└── res/
-├── layout/
-│   ├── activity_main.xml
-│   ├── activity_register.xml
-│   ├── activity_dashboard.xml
-│   ├── activity_event_detail.xml
-│   ├── activity_registration_form.xml
-│   ├── activity_confirmation.xml
-│   ├── activity_admin_panel.xml
-│   └── item_registration.xml
-└── values/
-├── strings.xml
-├── colors.xml
-└── themes.xml
+---
 
-## 🔥 Firebase Structure
-registrations/
-├── Seminar/
-│   └── -uniqueKey/
-│       ├── name: "Rahul Patil"
-│       ├── branch: "CE - Computer Engineering"
-│       ├── year: "3rd Year"
-│       ├── phone: "9876543210"
-│       ├── eventName: "Career Guidance Seminar"
-│       ├── registrationId: "EVT28492"
-│       └── timestamp: "1716789000000"
-├── Workshop/
-├── Tech Fest/
-├── Hackathon/
+## ⚙️ Setup and Installation
+
+### Prerequisites
+- Android Studio (Hedgehog or later)
+- Firebase account
+- Android device or emulator (API 24+)
+- Internet connection for first Gradle sync
+
+### Step 1 — Clone the repository
+```bash
+git clone https://github.com/yourusername/CollegeEventManagement.git
+cd CollegeEventManagement
+```
+
+### Step 2 — Firebase Setup
+1. Go to [Firebase Console](https://console.firebase.google.com)
+2. Create new project → name it `CollegeEvents`
+3. Add Android App → package: `com.example.myapplicationproject`
+4. Download `google-services.json`
+5. Place it inside the `app/` folder
+
+### Step 3 — Enable Firebase Services
+- **Authentication** → Sign-in method → Enable Email/Password
+- **Realtime Database** → Create database → Start in test mode
+
+### Step 4 — Add Firebase Rules (for testing)
+```json
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+```
+
+### Step 5 — Open in Android Studio
+
+### Step 6 — Run the app
+
+## 🔐 Admin Login Credentials
+Email    : admin@college.com
+Password : admin123
 
 
-## 📲 App Flow
-Launch
-└── LoginActivity
-├── New User → RegisterActivity → DashboardActivity
-├── Student Login → DashboardActivity
-│     └── Select Event → EventDetailActivity
-│           └── Register → RegistrationFormActivity
-│                 └── Submit → ConfirmationActivity
-│                       └── Back → DashboardActivity
-└── Admin Login → AdminPanelActivity
-└── Cultural/
+## 🔮 Future Improvements
+
+- [ ] 🔔 Push notifications via Firebase Cloud Messaging
+- [ ] 🔑 Forgot password via email reset
+- [ ] 👨‍💼 Admin can dynamically add and delete events
+- [ ] 💳 Payment gateway for paid events (Razorpay)
+- [ ] 📍 Google Maps integration for venue navigation
+- [ ] 📤 Export registrations as PDF or Excel file
+- [ ] 📱 OTP based login via Firebase Phone Auth
+- [ ] 🌙 Dark mode support
+- [ ] 📊 Registration statistics with bar charts
+
+---
+
+## 👥 Team Members
+
+Pranav Patil 
+Mohit Patil
+
+---
+
+## 📚 Subject Details
+
+> **Subject:** Mobile Application Development (MAD)
+> **Academic Year:** 2025-26
+> **Semester:** VI
+> **Branch:** Information Technology
+> **College:** [NMIMS]
